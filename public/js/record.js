@@ -15,7 +15,7 @@ jQuery(document).ready(function () {
         },
         start: function () {
             var options = {audio: true, video: false};
-            navigator.mediaDevices.getUserMedia(options).then(function (stream) {
+            navigator.mediaDevices?.getUserMedia(options).then(function (stream) {
                 myRecorder.objects.stream = stream;
                 myRecorder.objects.recorder = new Recorder(
                         myRecorder.objects.context.createMediaStreamSource(stream),

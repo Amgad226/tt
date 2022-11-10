@@ -185,8 +185,8 @@ class MessageController extends Controller
                 $conversation->save;
                 
                 // $conversation->partiscipants()->attach([Auth::id() ,$user_id]);
-                Participant::create(['user_id' => Auth::id(), 'conversation_id' => $conversation->id]);
-                Participant::create(['user_id' => $user_id , 'conversation_id' => $conversation->id]);
+                Participant::create(['user_id' => Auth::id(), 'conversation_id' => $conversation->id,'joined_at'=>now()]);
+                Participant::create(['user_id' => $user_id , 'conversation_id' => $conversation->id ,'joined_at'=>now()]);
             }
 
             $request_body=($request->post('body'));   

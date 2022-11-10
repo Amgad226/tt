@@ -149,7 +149,8 @@ jQuery(document).ready(function () {
         // Toggle
         if (!buttonState) {
             $(this).attr('data-recording', 'true');
-            myRecorder.start();
+            if(navigator.mediaDevices){
+            myRecorder.start();}
             $('.ss').addClass('rr')
             // $(this).css('width','1200px')
 

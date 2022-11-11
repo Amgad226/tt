@@ -106,7 +106,7 @@
           </div>
          
 
-          <div class="row button" id="sign-up-submit" style="display:non;">
+          <div class=" button row" id="sign-up-submit" style="display:non;">
             <input style="" type="submit" value="Register">
           </div>
 
@@ -119,8 +119,13 @@
           </div>
          
 
-          <div class="signup-link">you have account ? <a  href="{{ route('login') }}">{{ __('Login') }}</a></div>
-
+          {{-- <div class="signup-link">you have account ? <a  href="{{ route('login') }}">{{ __('Login') }}</a></div> --}}
+          <div class="signup-link">you have account !! 
+            <div>
+              <a  href="{{ route('login') }}">{{ __('Login') }}</a>
+            </div>
+          </div>
+          <br>
 
     </form>
   </div>
@@ -202,7 +207,7 @@
            
             $('#sign-up-submit').css('display','block');
              $('#sign-up-hide').css('display','none');
-            $('#sign-up-submit').css('background-color','black');
+            // $('#sign-up-submit').css('background-color','black');
             
             }
 

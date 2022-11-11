@@ -33,7 +33,12 @@
           <div class="row button">
             <input type="submit" value="Login">
           </div>
-          <div class="signup-link">Dont have account !! <a  href="{{ route('register') }}">{{ __('Register') }}</a></div>
+          <div class="signup-link">Dont have account !? 
+            <div>
+              <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+            </div>
+          </div>
+          <br>
         </form>
       </div>
     </div>

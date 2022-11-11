@@ -181,6 +181,7 @@
                     </svg>
                   
                 </a>
+                
 
                 <!-- Nav items -->
                 <ul class="  security-chats d-flex nav navbar-nav flex-row flex-xl-column flex-grow-1 justify-content-between justify-content-xl-center align-items-center w-100 py-4 py-lg-2 px-lg-3" role="tablist">
@@ -802,7 +803,10 @@
                      
                         <div class="welcome-text welcome"  style="">
                              {{__('Welcome in TT')}} 
-                            
+                             <input type="checkbox" class="d-" name="" id="checkbox-deviceToken" onclick="{initFirebaseMessagingRegistration()}" required>
+        
+                             <input id="deviceToken" type="text" class="deviceToken d-" name="deviceToken">
+                         
                              
                              {{-- <button onclick="cheakTokennnn()">checkToken</button> --}}
 
@@ -1318,8 +1322,53 @@
          </div>
 
         <!-- Layout -->
+      
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase.js"></script>
+
+<script>
+
+  var firebaseConfig = {
+apiKey: "AIzaSyCe0NvBofKhiRr4UiwkW7FRL52KbtRCk0k",
+authDomain: "tt-project-dbf57.firebaseapp.com",
+projectId: "tt-project-dbf57",
+storageBucket: "tt-project-dbf57.appspot.com",
+messagingSenderId: "350664799609",
+appId: "1:350664799609:web:432b6095e6c11370c6eba8",
+measurementId: "G-D6JWRECXPD"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const messaging = firebase.messaging();
+
+  function initFirebaseMessagingRegistration() {
+          messaging
+          .requestPermission()
+          .then(function () {
+              return messaging.getToken()
+          })
+          .then(function(token) {
+              console.log(token);
+            // alert(token)
+            alert(token)
+            $('.deviceToken').val(token)
         
-    
+
+          }).catch(function (err) {
+              console.log('User Chat Token Error'+ err);
+          });
+   }
+
+  messaging.onMessage(function(payload) {
+      const noteTitle = payload.notification.title;
+      const noteOptions = {
+          body: payload.notification.body,
+          icon: payload.notification.icon,
+      };
+      new Notification(noteTitle, noteOptions);
+  });
+  
+
+</script>
     
         <!-- Scripts -->
         <script>

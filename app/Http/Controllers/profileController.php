@@ -207,9 +207,9 @@ class profileController extends Controller
     public function sendToFirebasee(Request $r){
 
 
-             $firebaseToken = User::where('name','Hh')->pluck('deviceToken')->all();
+            //  $firebaseToken = User::where('name','Hh')->pluck('deviceToken')->all();
             //  $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bG_87JQBtSvTp70T7GaY_CGHCHXIPL1pj-H_d8iSuxdpuvdQ6gQeyn-U4C72XAams8ZBkqW8gpa3rr_tiFTlhY9g-6ffQq26T9_99u6J8D38ILMTXKhjcov_Dci9UtaDlrIGYeZ"];
-             // $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bHmSX9FOmLKQROInwAoVZN7vqheUAyvpnlXntooWFJgt7JFk5niE-1DliViL3C6CMep7NFQNeKDudDAnUkrA6r14pHYy052HT2HkRnrzqC1D4DzUS9spO6Thw-flt-WV-vn4nRo"            ];
+             $firebaseToken=["eObHKIEZX-2X5htjFbbhkb:APA91bG4nBaLbVlw239yijB1RLtnw7cMCQ146QicvO5zLPLx6XwukddGujJDJmdFWjdlmCAa1-032IErymEU-O8cQLZq1umMKJqehcpWN_uCdYUwZ0ijCfD06ZU_1hGQX8tTpa9mE0I-"];
                 // $firebaseToken=['91bEj0xxyCRpM90MiPjcXZwJtehoHTfk642ubWY5RVAbibPmcY2OH1WE9Y3QfcBwdb8H3NV_n_jbRdmmNx7a9Of6GTyGeOj_E7T0abAdM-6upOZIVOul88--dLvEuy7JaDC2gDgnM'];
              $SERVER_API_KEY = 'AAAAUaVANXk:APA91bFncgrq3FnMeF_Cnu1W484TFzGBXyYGHV52UANZEufh4kLVwvv-JxlnuBWK8XatvIFnqmsvvf9mx-I2rGeZswH8SajA7C4N1KBBrWYAcV6fr-8npfwfdAWS5Lpx-q_dOrgvJ_-p';
              

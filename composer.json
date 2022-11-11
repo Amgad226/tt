@@ -39,7 +39,12 @@
             "Tests\\": "tests/"
         }
     },
+    "dependencies": {
+        "bower": "0.6.x"
+    },
     "scripts": {
+        "postinstall": "./node_modules/bower/bin/bower install",
+
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

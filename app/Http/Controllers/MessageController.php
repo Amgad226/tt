@@ -394,7 +394,7 @@ class MessageController extends Controller
      
         if(config('app.storeGoogleDrive')==true){
         $storedRecord= storage::disk('google')->put('voiceRecord/'.$name,$img  );
-        $linkRecord = Storage::disk('google')->url();
+        $linkRecord = Storage::disk('google')->url('voiceRecord/'.$name,$img );
         return response()->json($linkRecord);
         }
 

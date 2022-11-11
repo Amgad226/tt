@@ -5,8 +5,7 @@
         "build": "vite build",
         "bootstrap": "^5.1.3",
         "laravel-echo": "^1.13.1",
-        "laravel-vite-plugin": "^0.5.0",
-        "type": "module"
+        "laravel-vite-plugin": "^0.5.0"
 
     },
     "devDependencies": {

@@ -136,6 +136,7 @@ function selectFile(){
  
     fileElm.addEventListener('change',()=>{
         $('.send-image-loader').css('display','block')
+        
 
         const fsize = fileElm.files[0].size;
         const file = Math.round((fsize / (1024*1024)));
@@ -1703,10 +1704,10 @@ const ifArrayGroup=function(){
 
 $('#upload-profile-photo').on('change',function(e){
 
+    $('.send-image-loader').css('display','block')
     var x= URL.createObjectURL(e.target.files[0]);
     var profileImage=e.target.files[0];
     $('.profile-image').attr('src',x);
-
     let data = new FormData
      data.append('img',profileImage);
  fetch('/api/updateImg', {
@@ -1723,13 +1724,17 @@ $('#upload-profile-photo').on('change',function(e){
             console.log(data)
             if(data.status==0){
             document.documentElement.style.setProperty('--password', 'rgb(246, 30, 37)');
-            play(soundErorr)
+             play(soundErorr)
+             $('.send-image-loader').css('display','none')
+
          
              }
             else{
                 document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
                  $('.update-profile-img').attr('src',x);
             play(soundDone)
+                 $('.send-image-loader').css('display','none')
+
              
 
             }

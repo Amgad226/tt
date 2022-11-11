@@ -36,14 +36,14 @@ class DatabaseSeeder extends Seeder
         $pass=Hash::make('amgad123');
 
         // \App\Models\User::factory(10)->create();
-        User::create(['name'=>'amgad' ,'email'=>'amgad@gmail.com' ,'password'=>($pass)  ,'img'=>'/img/amgad.jpg' ,'deviceToken'=>'evq-0tEgE-SoCQciF-LIIY:APA91bHmSX9FOmLKQROInwAoVZN7vqheUAyvpnlXntooWFJgt7JFk5niE-1DliViL3C6CMep7NFQNeKDudDAnUkrA6r14pHYy052HT2HkRnrzqC1D4DzUS9spO6Thw-flt-WV-vn4nRo' ]);
-        User::create(['name'=>'ayham' ,'email'=>'ayham@gmail.com' ,'password'=>($pass)  ,'img'=>'/img/ayham.jpg' ,'deviceToken'=>'f3aweQqffqpcSfx198kGHS:APA91bGGhFJCcEi3feNHij-rSt-BPF7EJxRJlF0Yp8p7-MENFp3G46QwKYtcilrhZssm0nMqAJDbJulXH8-H2ct44EFP_H5UZE7yKThwv4G32lBHK_4QisVEasE5waffxlDdhdoc6OZu'  ]);
+        User::create(['name'=>'amgad' ,'email'=>'amgad@gmail.com' ,'password'=>($pass)  ,'img'=>'https://drive.google.com/uc?id=1g6v8UmQU78YfZURtmGN1pqXiZGFqOUaJ&export=media ' ,'deviceToken'=>'evq-0tEgE-SoCQciF-LIIY:APA91bHmSX9FOmLKQROInwAoVZN7vqheUAyvpnlXntooWFJgt7JFk5niE-1DliViL3C6CMep7NFQNeKDudDAnUkrA6r14pHYy052HT2HkRnrzqC1D4DzUS9spO6Thw-flt-WV-vn4nRo' ]);
+        User::create(['name'=>'ayham' ,'email'=>'ayham@gmail.com' ,'password'=>($pass)  ,'img'=>'https://drive.google.com/uc?id=1BHhyDTxz0oFUFB0GL1hqwBoUjDwZntbn&export=media' ,'deviceToken'=>'f3aweQqffqpcSfx198kGHS:APA91bGGhFJCcEi3feNHij-rSt-BPF7EJxRJlF0Yp8p7-MENFp3G46QwKYtcilrhZssm0nMqAJDbJulXH8-H2ct44EFP_H5UZE7yKThwv4G32lBHK_4QisVEasE5waffxlDdhdoc6OZu'  ]);
         User::create(['name'=>'rozet' ,'email'=>'rozet@gmail.com' ,'password'=>($pass)  ,'img'=>'/img/rozet.jpg'        ,'deviceToken'=>' ' ]);
         User::create(['name'=>'ahmad' ,'email'=>'ahmad@gmail.com' ,'password'=>($pass)  ,'img'=>'/img/ahmad.jpg'        ,'deviceToken'=>' ' ]);
         User::create(['name'=>'samer' ,'email'=>'samer@gmail.com' ,'password'=>($pass)  ,'img'=>'/img/samer.jpg'        ,'deviceToken'=>' ' ]);
         User::create(['name'=>'dana'  ,'email'=>'dana@gmail.com'  ,'password'=>($pass)  ,'img'=>'/img/dana.jpg'         ,'deviceToken'=>' ' ]);
         User::create(['name'=>'Ali'   ,'email'=>'Ali@gmail.com'   ,'password'=>($pass)  ,'img'=>'/img/ali.jpg'          ,'deviceToken'=>' ' ]);
-        User::create(['name'=>'hesham','email'=>'hisham@gmail.com','password'=>($pass)  ,'img'=>'/img/hesham.jpg'       ,'deviceToken'=>' ' ]);
+        User::create(['name'=>'hesham','email'=>'hisham@gmail.com','password'=>($pass)  ,'img'=>'https://drive.google.com/uc?id=19CSuaEw5yKzifGoEZZUe6oKl5x8CuB6r&export=media'       ,'deviceToken'=>' ' ]);
         User::create(['name'=>'joli'  ,'email'=>'joli@gmail.com'  ,'password'=>($pass)  ,'img'=>'/img/user_default.png' ,'deviceToken'=>' ' ]);
   
   

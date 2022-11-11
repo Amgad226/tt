@@ -803,10 +803,7 @@
                      
                         <div class="welcome-text welcome"  style="">
                              {{__('Welcome in TT')}} 
-                             <input type="checkbox" class="d-" name="" id="checkbox-deviceToken" onclick="{initFirebaseMessagingRegistration()}" required>
-        
-                             <input id="deviceToken" type="text" class="deviceToken d-" name="deviceToken">
-                         
+                 
                              
                              {{-- <button onclick="cheakTokennnn()">checkToken</button> --}}
 

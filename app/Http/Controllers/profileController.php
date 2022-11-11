@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Image;
+use Illuminate\Support\Facades\Storage;
 
 class profileController extends Controller
 {
@@ -29,13 +30,14 @@ class profileController extends Controller
         $image_resize = Image::make($body->getRealPath())->encode($body->getclientoriginalextension());;              
         $image_resize->resize(1280, 720, function ($constraint) {$constraint->aspectRatio(); });
         
-        $uniqid=uniqid();
-        // $name=$body->getClientOriginalName();
-        $name=Auth::user()->name;
-        // $image_resize->save(public_path('img/'.Auth::user()->name));
-        $image_resize->save(public_path('img/'.$name.$uniqid.'.'.$body->getclientoriginalextension()));
+        
+        $a= storage::disk('google')->put('userimage',$image_resize  );
+        $link_attachment = Storage::disk('google')->url($a);
+        
+        // $name=Auth::user()->name;
+        // $image_resize->save(public_path('img/'.$name.$uniqid.'.'.$body->getclientoriginalextension()));
+        // $link_attachment='img/'.$name.$uniqid.'.'.$body->getclientoriginalextension();
 
-        $link_attachment='img/'.$name.$uniqid.'.'.$body->getclientoriginalextension();
         Auth::user()->update(['img'=>$link_attachment]);
         return response()->json(['message'=>'image updated ', 'status'=>1]);
 

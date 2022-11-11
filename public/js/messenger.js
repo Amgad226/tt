@@ -317,14 +317,11 @@ $("#targetttt").on('submit',function(e){
     data.append('conversation_id',response_conversation_id)
     data.append('body',body)
     data.append('title',username+' send message')
-    // fetch(`api/send`,{ method: 'POST', body:data, })
+    fetch(`api/send`,{ method: 'get' })
 
      var random_class_to_add_message_id=makeid(5);
      var deleteAction =makeid(5);
-    // alert(body)
-    // console.log($(this).serialize())
-    // return;
-    // alert(1)
+  
     $.post($(this).attr('action') ,$(this).serialize() , function(response){
         // $('.sended').css("visibility", "");
         $(`.${deleteAction}`).removeClass("visibilty-hidden");
@@ -340,16 +337,7 @@ $("#targetttt").on('submit',function(e){
         'random_class_to_add_message_id':random_class_to_add_message_id,
         'deleteAction':deleteAction,
         'body': body,
-    //     'body':`<div class="message-text " style=" background-color:  ;height:90% display: flex;flex-direction: column;justify-content: space-between;">
-    //     <p>${body} <span class="sended" style="position:relative ;bottom:-12px;right:-10px;z-index:0;visibility:hidden"> 
-    //        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    //     width="15px" height="15px" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 78.369 78.369;"
-    //     xml:space="preserve"><g>
-    //    <path fill="var( --bs-white)" d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704
-    //        c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704
-    //        C78.477,17.894,78.477,18.586,78.049,19.015z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-    //     </svg></span>
-    //     </p></div>`,
+   
         'id':102,
         'user':user,
         'type':'text'

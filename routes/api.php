@@ -91,7 +91,6 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('updateImg'     ,[profileController::class,'updateImg'])->name('updateImg');
     Route::post('updateName'    ,[profileController::class,'updateName'])->name('updateName');
     Route::get('getNotification',[profileController::class,'getNotification']);//friends request from database
-    Route::get('send'           ,[profileController::class,'sendToFirebase']);
     //----------------------------------------------------------------------------------------------------------------------------------------
     
     Route::apiResource('friend',  FriendController::class);
@@ -107,5 +106,7 @@ Route::middleware('auth:sanctum')->group(function(){
         return response()->json(Auth::user());
     });
 });
+Route::get('send'           ,[profileController::class,'sendToFirebase']);
+Route::get('sendd'           ,[profileController::class,'sendToFirebasee']);
 
 

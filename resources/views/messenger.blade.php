@@ -11,6 +11,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+ 
         <title>TT</title>
         <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
         <!-- Favicon -->
@@ -1387,14 +1389,14 @@
         <script src="{{ asset ('js/messenger.js')}}" ></script>
 
      
-{{-- <script src="{{ asset('/sw.js') }}"></script>
+<script src="{{ asset('/sw.js') }}"></script>
 <script>
     if (!navigator.serviceWorker.controller) {
         navigator.serviceWorker.register("/sw.js").then(function (reg) {
             console.log("Service worker has been registered for scope: " + reg.scope);
         });
     }
-</script> --}}
+</script>
     </body>
 
        

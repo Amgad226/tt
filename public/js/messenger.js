@@ -96,28 +96,18 @@ function inputImageMessage(){
                 alert(result.message);
                 return;
             }
-       
-            
-            
-            
-            
-            
             $('#'+random).attr('src', result.link_attachment);
-            
-            
             
         // var attachment =result.obj_msg.body
         // var date = result.obj_msg.created_at
         // var msg={'body':attachment  ,'created_at':date ,'id':result.obj_msg.id};
         // addMessage(msg,'message-out',true);
-        // $('.send-image-loader').css('display','none')
                 
 
         })
         .catch((error) => {
           console.error('Error:', error);
           alert('Error:', error);
-          $('.send-image-loader').css('display','none')
 
         });
  
@@ -135,7 +125,7 @@ function selectFile(){
     fileElm.setAttribute('type','file');
  
     fileElm.addEventListener('change',()=>{
-        $('.send-image-loader').css('display','block')
+        $('.send-image-loader').css('display','block');
         
 
         const fsize = fileElm.files[0].size;
@@ -143,7 +133,7 @@ function selectFile(){
         if (file >= 15) {
             alert(
               "File too Big, please select a file less than 15mb");
-            $('.send-image-loader').css('display','none')
+            $('.send-image-loader').css('display','none');
 
               return ;
         } 
@@ -1717,20 +1707,15 @@ $('#upload-profile-photo').on('change',function(e){
          }).then(data=>{
             console.log(data)
             if(data.status==0){
-            document.documentElement.style.setProperty('--password', 'rgb(246, 30, 37)');
+             document.documentElement.style.setProperty('--password', 'rgb(246, 30, 37)');
              play(soundErorr)
-             $('.send-image-loader').css('display','none')
-
-         
-             }
-            else{
-                document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
-                 $('.update-profile-img').attr('src',x);
-            play(soundDone)
-
-             
-
             }
+            else{
+              document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
+              $('.update-profile-img').attr('src',x);
+              play(soundDone)
+            }
+            $('.send-image-loader').css('display','none')
 
             $('.bodyToastPassword').empty()
             $('.bodyToastPassword').append(data.message)
@@ -1786,7 +1771,6 @@ $("#groupForm").on('submit',function(e){
             if(data.status==0){
             document.documentElement.style.setProperty('--password', 'rgb(246, 30, 37)');
             play(soundErorr)
-            $('.send-image-loader').css('display','none')
 
          
              }
@@ -1806,7 +1790,6 @@ $("#groupForm").on('submit',function(e){
                 $('.if-arrayGroup').append(noSelectedMemberYet);
                 $(".if-arrayGroup").css("background-color", "#D32535"); 
                 document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
-                $('.send-image-loader').css('display','none')
 
             play(soundDone)
 

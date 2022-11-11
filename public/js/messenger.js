@@ -340,7 +340,7 @@ $("#targetttt").on('submit',function(e){
 
 
 });
-const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=true){
+const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=true,classDeletMessage=''){
     const $container = $('.form-ccontainer');
     if (isAnimate) 
     {
@@ -355,8 +355,64 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
     // }
     // -------------
 
-
     var something=msg.body;
+    var link_attachment=msg.body;
+    if(msg.type=='text')
+    {
+            something= `<div class="message-text " style=" background-color:  ;height:90% display: flex;flex-direction: column;justify-content: space-between;">
+                            <p>${msg.body} 
+                                <span class="sended ${msg.deleteAction} ${classDeletMessage}  " style="position:relative ;bottom:-12px;right:-10px;z-index:0;visibility:">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="15px" height="15px" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 78.369 78.369;"xml:space="preserve"><g><path fill="var( --bs-white)" d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704C78.477,17.894,78.477,18.586,78.049,19.015z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                                    </svg>
+                                </span>
+                            </p>
+                        </div> `
+    }
+
+    else if(msg.type=='img'){
+        something= `<img  width="200"  class="img-fluid rounded" src="${link_attachment}" data-action="zoom" alt="">`;
+
+    }
+
+    else if(msg.type=='audio')
+    {
+        // alert()
+        something=`
+        <audio style='border: 5px solid #2787F5; border-radius: 50px;'  controls ><source src="${link_attachment}" type="audio/WAV"></audio>
+        
+        <span class="sended ${msg.deleteAction} ${classDeletMessage}  "   style="position:absolute;right:23px; z-index:120;visibility:visiable"> 
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="12px" height="12px" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 78.369 78.369;" xml:space="preserve"><g>
+               <path fill="#2787F5" d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704 c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704 C78.477,17.894,78.477,18.586,78.049,19.015z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+            </svg>
+        </span>`;
+    }
+   
+    else if(msg.type=='attachment')
+    {
+//     console.log(msg.attachment.link_attachment )
+// return;
+        // console.log(attachment)
+        something=`<div class="message-text">
+        <div class="row align-items-center gx-4">
+            <div class="col-auto">
+                <a href="${msg.attachment.link_attachment}" class="avatar avatar-sm" target="_blank">
+                    <div class="avatar-text bg-white text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                    </div>
+                </a>
+            </div>
+            <div class="col overflow-hidden">
+                <h6 class="text-truncate text-reset">
+                    <a href="#" class="text-reset">${msg.attachment.name}</a>
+                </h6>
+                <ul class="list-inline text-uppercase extra-small opacity-75 mb-0">
+                    <li class="list-inline-item">${msg.attachment.stringSize}</li>
+                </ul>
+            </div>
+        </div>
+      </div>`;
+    }
+     
 
     var dropdown  = '' ;
     var dir;
@@ -372,14 +428,8 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
                 
 
 
-                <div class="message-text" >
-                        <p>${something} 
-                            <span class="sended  " style="position:relative ;bottom:-12px;right:-10px;z-index:0;visibility:">
-                                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="15px" height="15px" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 78.369 78.369;"xml:space="preserve"><g><path fill="var( --bs-white)" d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704C78.477,17.894,78.477,18.586,78.049,19.015z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                                </svg>
-                            </span>
-                        </p>
-                </div> 
+               ${something} 
+                          
                 
                 
         </div>   
@@ -390,16 +440,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
         else
         // else
         {
-            // dir= something;
-            dir=` 
-            <div class="message-text " style=" background-color:  ;height:90% display: flex;flex-direction: column;justify-content: space-between;">
-                <p>${something} 
-                    <span class="sended  " style="position:relative ;bottom:-12px;right:-10px;z-index:0;visibility:">
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="15px" height="15px" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 78.369 78.369;"xml:space="preserve"><g><path fill="var( --bs-white)" d="M78.049,19.015L29.458,67.606c-0.428,0.428-1.121,0.428-1.548,0L0.32,40.015c-0.427-0.426-0.427-1.119,0-1.547l6.704-6.704c0.428-0.427,1.121-0.427,1.548,0l20.113,20.112l41.113-41.113c0.429-0.427,1.12-0.427,1.548,0l6.703,6.704C78.477,17.894,78.477,18.586,78.049,19.015z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                        </svg>
-                    </span>
-                </p>
-            </div> `;
+         
 
             if(deleteAction==true)
             {
@@ -421,8 +462,8 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
                         </li>
 
                     </ul>
-            </div>
-        </div>`;
+                </div>
+            </div>`;
             }
         }
             
@@ -431,7 +472,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
             <div class="message-inner" >
                    <div class="message-body">
                          <div class="message-content">
-                               ${dir}
+                               ${something}
                                ${dropdown}
                         </div> 
                     </div>

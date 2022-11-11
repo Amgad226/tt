@@ -282,16 +282,16 @@ class ConvarsationController extends Controller
             'conversation_id'=>['required','exists:conversations,id'],
             'users_id'=>['required','exists:users,id'],
           ]);
+
+        if ($validator->fails())
+        { 
+            $errors = []; foreach ($validator->errors()->messages() as $key => $value) {     $key = 'message';     $errors[$key] = is_array($value) ? implode(',', $value) : $value; }       return response()->json( ['message'=>$errors['message'],'status'=>0],400);
+        }
         $users_id = explode(",", $request->users_id);
-
- 
-             if ($validator->fails())
-             { 
-                 $errors = []; foreach ($validator->errors()->messages() as $key => $value) {     $key = 'message';     $errors[$key] = is_array($value) ? implode(',', $value) : $value; }       return response()->json( ['message'=>$errors['message'],'status'=>0],400);
-             }
-             foreach($users_id as $user_id){
-
-                 Participant::create(['conversation_id'=>$request->conversation_id,'user_id'=>$user_id,'joined_at'=>Carbon::now()]);
+        
+        foreach($users_id as $user_id){
+            
+            Participant::create(['conversation_id'=>$request->conversation_id,'user_id'=>$user_id,'joined_at'=>Carbon::now()]);
                 //  Participant::attach($user_id,['joined_at'=>Carbon::now(),]);
              }
         return 'done';

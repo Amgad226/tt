@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 
+use Image;
+use Illuminate\Support\Facades\Storage;
 
 
 class ConvarsationController extends Controller
@@ -143,15 +145,31 @@ class ConvarsationController extends Controller
         $users_id = explode(",", $request->users_id);
     
         if (request()->hasFile('img')){
-            $extension='.'.$request->img->getclientoriginalextension();
-            $path=public_path('/img/group');
-            if(!File::exists( $path))
-            File::makeDirectory( $path,0777,true);
-            $Name= $request->groupName;  
-            $uniqid_img='('.uniqid().')';
-            $image=$request->file('img') ; 
-            $image->move($path,$uniqid_img.$Name.$extension);
-            $imgToDB='img/group/'.$uniqid_img.$Name.$extension;
+            // $extension='.'.$request->img->getclientoriginalextension();
+            // $path=public_path('/img/group');
+            // if(!File::exists( $path))
+            // File::makeDirectory( $path,0777,true);
+            // $Name= $request->groupName;  
+            // $uniqid_img='('.uniqid().')';
+            // $image=$request->file('img') ; 
+            // $image->move($path,$uniqid_img.$Name.$extension);
+            // $imgToDB='img/group/'.$uniqid_img.$Name.$extension;
+
+
+            $body=$request->file('img');
+            $image_resize = Image::make($body->getRealPath())->encode($body->getclientoriginalextension());;              
+            $image_resize->resize(1280, 720, function ($constraint) {$constraint->aspectRatio(); });
+            
+            
+            $name=$request->groupName;
+            $extension=$body->getclientoriginalextension();
+            $uniqid=uniqid();
+    
+        
+    
+            Storage::disk('google')->put('group/'.$name.$uniqid.'.'.$extension ,$image_resize,  );
+            $imgToDB = Storage::disk('google')->url('group/'.$name.$uniqid.'.'.$extension);  
+            
         }
         // dd( $imgToDB);
         //  array_push($users_id,(string)Auth::id());

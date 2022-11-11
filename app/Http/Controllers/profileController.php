@@ -31,10 +31,15 @@ class profileController extends Controller
         $image_resize->resize(1280, 720, function ($constraint) {$constraint->aspectRatio(); });
         
         
-        $a= storage::disk('google')->put('userimage',$image_resize  );
-        $link_attachment = Storage::disk('google')->url($a);
+        $name=Auth::user()->name;
+        $extension=$body->getclientoriginalextension();
+        $uniqid=uniqid();
+
+    
+
+        Storage::disk('google')->put('userimage/'.$name.$uniqid.'.'.$extension ,$image_resize,  );
+        $link_attachment = Storage::disk('google')->url('userimage/'.$name.$uniqid.'.'.$extension);  
         
-        // $name=Auth::user()->name;
         // $image_resize->save(public_path('img/'.$name.$uniqid.'.'.$body->getclientoriginalextension()));
         // $link_attachment='img/'.$name.$uniqid.'.'.$body->getclientoriginalextension();
 

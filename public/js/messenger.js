@@ -1756,7 +1756,7 @@ $('.groupDescription').on('keyup',function() {
 
 $("#groupForm").on('submit',function(e){
     e.preventDefault();
-
+    $('.send-image-loader').css('display','block')
     let data = new FormData
      data.append('img',imgGroup);
      data.append('users_id',arrayGroup);
@@ -1777,6 +1777,7 @@ $("#groupForm").on('submit',function(e){
             if(data.status==0){
             document.documentElement.style.setProperty('--password', 'rgb(246, 30, 37)');
             play(soundErorr)
+            $('.send-image-loader').css('display','none')
 
          
              }
@@ -1796,6 +1797,7 @@ $("#groupForm").on('submit',function(e){
                 $('.if-arrayGroup').append(noSelectedMemberYet);
                 $(".if-arrayGroup").css("background-color", "#D32535"); 
                 document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
+                $('.send-image-loader').css('display','none')
 
             play(soundDone)
 
@@ -1804,7 +1806,10 @@ $("#groupForm").on('submit',function(e){
             $('.bodyToastPassword').append(data.message)
             $(`.toastPassword`).toast({ delay: 3000 });
             $('.toastPassword').toast('show'); 
+    $('.send-image-loader').css('display','none')
+
          })
+
 
 
 });

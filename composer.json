@@ -15,7 +15,9 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.0",
         "masbug/flysystem-google-drive-ext": "^2.2",
-        "pusher/pusher-php-server": "^7.0"
+        "pusher/pusher-php-server": "^7.0",
+        "gd": "*"
+
     },
     "require-dev": {
         "laravel/pint": "^1.0",

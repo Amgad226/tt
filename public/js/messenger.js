@@ -1600,7 +1600,7 @@ for(let i = 0; i<
                     let data = new FormData
                     data.append('_token','${tokenn}')
                     data.append('user_id',$(this).attr('user-id'));
-                    fetch('${a}'+'/api/friend', {
+                    fetch('/api/friend', {
                         method: 'POST',
                         body:data,
                         headers: {
@@ -1641,7 +1641,7 @@ $(`.tap-friend-group`).on('click',function(e){
 
         for(i in response) 
         {
-            $('.friends-create-group  ').append(`
+            $('.friends-create-group').append(`
             <div class="card-body" style="background-color:var(--bs-body-bg)">
 
                  <div class="row align-items-center gx-5">

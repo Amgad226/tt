@@ -195,7 +195,7 @@ class ConvarsationController extends Controller
                  array_push($idd,$u->user2_id );
             }
 
-        $users_id_in_chat=DB::select('SELECT users.id FROM `users` 
+        $users_id_in_chat=DB::select('SELECT users.id FROM users 
         JOIN partiscipants on partiscipants.user_id = users.id 
         WHERE partiscipants.conversation_id=?',[$id]);
 

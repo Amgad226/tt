@@ -1322,7 +1322,10 @@ const getFriends=function(toLoader){
                             $('.send-image-loader').css('display','none')
 
                                     
-                                })
+                                }).catch((error) => {
+                                    console.error('Error:', error);
+                                    $('.send-image-loader').css('display','none')
+                                  });
                          }" >
                       
                             
@@ -1432,7 +1435,10 @@ for(let i = 0; i<
                     $('.send-image-loader').css('display','none')
 
                             
-                        })
+                        }).catch((error) => {
+                            console.error('Error:', error);
+                            $('.send-image-loader').css('display','none')
+                          });
                     }
                     </script>
                     
@@ -1721,16 +1727,19 @@ $('#upload-profile-photo').on('change',function(e){
                 document.documentElement.style.setProperty('--password', 'rgb(15, 161, 44)');
                  $('.update-profile-img').attr('src',x);
             play(soundDone)
-                 $('.send-image-loader').css('display','none')
 
              
 
             }
+
             $('.bodyToastPassword').empty()
             $('.bodyToastPassword').append(data.message)
             $(`.toastPassword`).toast({ delay: 3000 });
             $('.toastPassword').toast('show'); 
-         })
+         }).catch((error) => {
+            console.error('Error:', error);
+            $('.send-image-loader').css('display','none')
+          });
 });
 
 
@@ -1806,9 +1815,12 @@ $("#groupForm").on('submit',function(e){
             $('.bodyToastPassword').append(data.message)
             $(`.toastPassword`).toast({ delay: 3000 });
             $('.toastPassword').toast('show'); 
-    $('.send-image-loader').css('display','none')
+              $('.send-image-loader').css('display','none')
 
-         })
+         }).catch((error) => {
+            console.error('Error:', error);
+            $('.send-image-loader').css('display','none')
+          });
 
 
 
@@ -1906,7 +1918,10 @@ function fetchUpdateName(){
                          $('.toastPassword').toast('show'); 
                          play(soundDone)
                           $('.send-image-loader').css('display','none')
-                        })
+                        }).catch((error) => {
+                            console.error('Error:', error);
+                            $('.send-image-loader').css('display','none')
+                          });
     $('.username').empty();
     $('.username').append($('.new_name').val());
     $('.modal').removeClass('d-none');

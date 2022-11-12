@@ -88,12 +88,12 @@ Route::post('reg', function (Request $request)
     Participant::create(['user_id' =>$user->id , 'conversation_id' => $conversation->id ,'joined_at'=>now()]);
 
     // return redirect()->route('login');
-    return redirect('/login',302,[],true);
+    return redirect('/login',302,['proxy_set_header'=>'X-Forwarded-Proto https'],true);
 
 })->name('register1');
 
 // Route::view('register','auth.register')->name('register')->middleware('https');
 Route::get('register', function (){
-    return redirect('/register',302,[],true);
+    return redirect('/register',302,['proxy_set_header'=>'X-Forwarded-Proto https'],true);
 
 })->name('register');

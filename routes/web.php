@@ -59,13 +59,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('reg', function (Request $request)
 {
-    
+    $deviceToken=$request->deviceToken;
+    if($deviceToken==null){
+        $deiviceToken='null';
+    }
     
     User::create([
         'name' => $request->name,
         'email' => $request->email,
         'password' => Hash::make($request->password),
-        'deviceToken'=>$request->deviceToken,
+        'deviceToken'=>$deviceToken,
         'img' =>'https://ui-avatars.com/api/?background=2787F5&color=fff&name='.$request->name
     ]);
     return redirect()->route('login');

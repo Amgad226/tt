@@ -37,7 +37,7 @@ class RegisterController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo()
     {
-              return redirect('/register',302,[],true);
+              return redirect('/',302,[],true);
 
     }
   

@@ -27,8 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        // dd(Auth::user());
+        if (!App::environment([
+            'local',
+            'testing',
+        ])) {
+            URL::forceScheme('https');
+        }
        
     }
 }

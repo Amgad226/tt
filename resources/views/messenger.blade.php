@@ -5,8 +5,8 @@
     <!-- Head -->        
         <head>
         <meta name="theme-color" content="#6777ef"/>
-        <link rel="apple-touch-icon" href="{{ asset('img/logo.png') }}">
-        <link rel="manifest" href="{{ asset('manifest.json') }}">
+        <link rel="apple-touch-icon" href="{{ secure_asset('img/logo.png') }}">
+        <link rel="manifest" href="{{ secure_asset('manifest.json') }}">
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, shrink-to-fit=no, viewport-fit=cover">
@@ -14,17 +14,18 @@
 
  
         <title>TT</title>
-        <link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{secure_asset('img/logo.png')}}" type="image/x-icon">
         <!-- Favicon -->
 
         <!-- Font -->
         {{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
-        {{-- <link rel="stylesheet" href="{{asset('assets/css/font.Roboto.css')}}"> --}}
-        <link rel="stylesheet" href="{{asset('assets/css/Material.Icons.css')}}">
+        {{-- <link rel="stylesheet" href="{{secure_asset('assets/css/font.Roboto.css')}}"> --}}
+        <link rel="stylesheet" href="{{secure_asset('assets/css/Material.Icons.css')}}">
         
         
         <!-- Template CSS -->
-        <link rel="stylesheet" href="{{asset('assets/css/newDark.css')}}" >
+        <link rel="stylesheet" href="{{secure_asset('assets/css/newDark.css')}}" >
+        {{secure_asset('assets/css/newDark.css')}}
         {{-- <link rel="stylesheet" href="{{asset('assets/css/template.dark.bundle.css')}}" > --}}
 
         <style>
@@ -1390,14 +1391,14 @@ measurementId: "G-D6JWRECXPD"
             console.log(envTyping)
         </script>
 
-        <script src="{{ asset ('assets/js/template.js')}}" ></script>
-        <script src="{{ asset ('assets/js/vendor.js')  }}" ></script>
-        <script src="{{ asset ('assets/js/moment.js')  }}" crossorigin="anonymous"></script>
-        <script src="{{ asset ('js/jquery.js')}}" ></script>
-        <script src="{{ asset ('js/7.2.pusher.min.js')}}" ></script>
-        <script src="{{ asset ('js/pusher.js')}}" ></script>
-        <script src="{{ asset ('js/record.js')}}" ></script>
-        <script src="{{ asset ('js/markjivo.recorder.js')}}" ></script>
+        <script src="{{ secure_asset ('assets/js/template.js')}}" ></script>
+        <script src="{{ secure_asset ('assets/js/vendor.js')  }}" ></script>
+        <script src="{{ secure_asset ('assets/js/moment.js')  }}" crossorigin="anonymous"></script>
+        <script src="{{ secure_asset ('js/jquery.js')}}" ></script>
+        <script src="{{ secure_asset ('js/7.2.pusher.min.js')}}" ></script>
+        <script src="{{ secure_asset ('js/pusher.js')}}" ></script>
+        <script src="{{ secure_asset ('js/record.js')}}" ></script>
+        <script src="{{ secure_asset ('js/markjivo.recorder.js')}}" ></script>
         
         @if ( config('app.envTyping')  ==true)
        
@@ -1432,10 +1433,10 @@ measurementId: "G-D6JWRECXPD"
          </script>
         @endif
         
-        <script src="{{ asset ('js/messenger.js')}}" ></script>
+        <script src="{{ secure_asset ('js/messenger.js')}}" ></script>
 
      
-<script src="{{ asset('/sw.js') }}"></script>
+<script src="{{ secure_asset('/sw.js') }}"></script>
 <script>
     if (!navigator.serviceWorker.controller) {
         navigator.serviceWorker.register("/sw.js").then(function (reg) {

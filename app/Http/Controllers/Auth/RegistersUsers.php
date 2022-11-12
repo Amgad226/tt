@@ -66,7 +66,7 @@ trait RegistersUsers
      */
     protected function registered(Request $request, $user)
     {
-        return redirect('/',302,[],true);
+        // return redirect('/',302,[],true);
         
     }
 }

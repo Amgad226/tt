@@ -35,16 +35,19 @@ class RegisterController extends Controller
      * @var string
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
-
-    public function showRegistrationForm()
+    protected function redirectTo()
     {
+              return redirect('/register',302,[],true);
 
-        // return redirect('/register',302,[],true);
-        // return route('register');
-        return view('auth.register');
     }
+  
     
-   
+    // protected function registered(Request $request, $user)
+    // {
+ 
+    //     return redirect('/',302,[],true);
+    
+    // }
   
     /**
      * Create a new controller instance.

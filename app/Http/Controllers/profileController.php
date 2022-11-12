@@ -132,12 +132,12 @@ class profileController extends Controller
 
 
     public function sendToFirebase(Request $r){
-
+        // return $r->conversation_id;
         $participants=Participant::where('conversation_id',$r->conversation_id)->where('user_id','<>',Auth::id())->get('user_id');
+        // return($participants);
         $a=[];
         foreach($participants as $participant )
          {
-
              $firebaseToken = User::where('id',$participant->user_id)->pluck('deviceToken')->all();
             //  $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bG_87JQBtSvTp70T7GaY_CGHCHXIPL1pj-H_d8iSuxdpuvdQ6gQeyn-U4C72XAams8ZBkqW8gpa3rr_tiFTlhY9g-6ffQq26T9_99u6J8D38ILMTXKhjcov_Dci9UtaDlrIGYeZ"];
              // $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bHmSX9FOmLKQROInwAoVZN7vqheUAyvpnlXntooWFJgt7JFk5niE-1DliViL3C6CMep7NFQNeKDudDAnUkrA6r14pHYy052HT2HkRnrzqC1D4DzUS9spO6Thw-flt-WV-vn4nRo"            ];
@@ -150,7 +150,7 @@ class profileController extends Controller
                      "title" =>$r->title,
                      "body" => $r->body,
                      "content_available" => true,
-                     "icon"=>asset('img/logo.png'),
+                     "icon"=>asset('logo.png'),
                      "click_action"=>'/',
                      "priority" => "high",
                      // "sound"=> 'http://127.0.0.1:8000/tele.mp3',

@@ -409,7 +409,7 @@ $("#targetttt").on('submit',function(e){
     data.append('conversation_id',response_conversation_id)
     data.append('body',body)
     data.append('title',username+' send message')
-    fetch(`api/send`,{ method: 'get' })
+    fetch(`api/send`,{ method: 'post',body:data })
 
      var random_class_to_add_message_id=makeid(5);
      var deleteAction =makeid(5);
@@ -1157,9 +1157,9 @@ else{
     message_body_with_slice=chat.conversation.last_massege.type;
     // console.log(chat.conversation.last_massege.body)
 
-    if(chat.conversation.last_massege.body==null){
-        message_body_with_slice='';
-    }
+    // if(chat.conversation.last_massege.body==null){
+    //     message_body_with_slice='';
+    // }
     $('#chat-list').append(`
     
     

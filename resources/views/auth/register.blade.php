@@ -106,15 +106,15 @@
             <input name="password_confirmation" id="cname"type="password" class="form-control rounded-left" placeholder="Password" required>
 
           </div>
+          <div id="checkbox-deviceToken" style="display:none">
+              <input  type="checkbox"  name="" onclick="{initFirebaseMessagingRegistration()}" required>
+              <label > accept all terms and conditions</label>
+              <div class="row"style=" display:none " id="deviceToken">
+                <input   type="text" class="deviceToken " name="deviceToken">
+              </div>
+         </div>
 
-          <input type="checkbox"  name="" id="checkbox-deviceToken" onclick="{initFirebaseMessagingRegistration()}" required>
-          <label > accept all terms and conditions</label>
-          <div class="row"style=" display: " id="deviceToken">
-            <input   type="text" class="deviceToken " name="deviceToken">
-          </div>
-         
-
-          <div class=" button row" id="sign-up-submit" style="display:non;">
+          <div class=" button row" id="sign-up-submit" style="display:none;">
             <input style="" type="submit" value="Register">
           </div>
 
@@ -171,7 +171,7 @@
           })
           .then(function(token) {
               console.log(token);
-            alert(token)
+            // alert(token)
             $('.deviceToken').empty();
             $('.deviceToken').val(token);
      
@@ -201,72 +201,92 @@
     // alert(2)
    $('.check-loader').css('display','block');
 
-    if(data=="Syria"){
-             alert(data)
-            //  alert(1)
+    // if(data=="Syria"){
+    //          alert(data)
+    //         //  alert(1)
             
-             $('#sign-up-submit').css('display','none');
-             $('#sign-up-hide').css('display','block');
+    //          $('#sign-up-submit').css('display','none');
+    //          $('#sign-up-hide').css('display','block');
       
+
+
+    //        }
+    //        else{
+    //         // alert(2)
+           
+    //         $('#sign-up-submit').css('display','block');
+    //          $('#sign-up-hide').css('display','none');
+    //         // $('#sign-up-submit').css('background-color','black');
+            
+    //         }
+
+    //         setTimeout(() => {
+               
+    //            $('.check-loader').css('display','none');
+    //          }, 500);
+ 
+    $('.check-loader').css('display','block');
+
+ fetch('http://ipwho.is/', {method: 'GET',})
+ .then(res =>{
+
+   if (res.status>=200 && res.status <300) 
+     return res.json()
+  
+       }
+         ).then(data=>
+         {
+          if(data.success==true){
+            
+          
+          // var l ='Syra'
+           console.log(data.country)
+           if(data.country=="Syria"){
+             // alert(data.country)
+             $('#sign-up-submit').css('display','none');
+             $('#checkbox-deviceToken').css('display','none');
+             
+             $('#sign-up-hide').css('display','block');
+             setTimeout(() => {
+               
+               $('.check-loader').css('display','none');
+             }, 500);
 
 
            }
            else{
-            // alert(2)
-           
-            $('#sign-up-submit').css('display','block');
+             $('#s').addClass('d-none');
+            //  $('#sign-up-submit').removeClass('d-none');
+            $('#checkbox-deviceToken').css('display','block');
+             $('#sign-up-submit').css('display','block');
              $('#sign-up-hide').css('display','none');
-            // $('#sign-up-submit').css('background-color','black');
-            
-            }
 
-            setTimeout(() => {
+            //  $('#checkbox-deviceToken').removeClass('d-none');
+             
+             $('#sign-up-hide').addClass('d-none');
+             setTimeout(() => {
                
-               $('.check-loader').css('display','none');
+              $('.check-loader').css('display','none');
              }, 500);
- 
-
-//  fetch('https://ipwho.is/', {method: 'GET',})
-//  .then(res =>{
-//    $('.check-loader').css('display','block');
-
-//    if (res.status>=200 && res.status <300) 
-//      return res.json()
-  
-//        }
-//          ).then(data=>
-//          {
-
-//            console.log(data.country)
-//            if(data.country=="Syria"){
-//              // alert(data.country)
-//              $('#sign-up-submit').css('display','none');
-//              $('#checkbox-deviceToken').css('display','none');
-             
-//              $('#sign-up-hide').css('display','block');
-//              setTimeout(() => {
-               
-//                $('.check-loader').css('display','none');
-//              }, 500);
 
 
-//            }
-//            else{
-//              $('#s').addClass('d-none');
-//              $('#sign-up-submit').removeClass('d-none');
-//              $('#checkbox-deviceToken').removeClass('d-none');
-             
-//              $('#sign-up-hide').addClass('d-none');
-//              setTimeout(() => {
-               
-//                $('.check-loader').css('display','none');
-//              }, 500);
+           }
+          }
+          else{
+             $('#checkbox-deviceToken').css('display','block');
+             $('#sign-up-submit').css('display','block');
+             $('#sign-up-hide').css('display','none');
 
-//            }
-//          })
-//  .catch((error) => {
-//    alert('internet very slow'+error)
-//  });
+            alert('cheak ip noy work please open vpn to recive notification')
+            $('.check-loader').css('display','none');
+
+          }
+         })
+ .catch((error) => {
+  $('.check-loader').css('display','none');
+
+   alert('internet very slow'+error)
+ });
 
 }
 

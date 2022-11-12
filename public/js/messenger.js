@@ -457,7 +457,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
     // }
     // -------------
 
-    var something=msg.body;
+    var something;
     var link_attachment=msg.body;
     if(msg.type=='text')
     {
@@ -514,7 +514,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
         </div>
       </div>`;
     }
-     
+     console.log(something)
 
     var dropdown  = '' ;
     var dir;
@@ -527,12 +527,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
         <img class="avatar" src="${msg.user.img}" alt="" style="">
         <div  style=" display: flex;flex-direction: column; ">
                 <p style=" font-size:;   position: relative;top: 5px; background-color:  ;margin-bottom:0px "> ${msg.user.name}</p>
-                
-
-
-               ${something} 
-                          
-                
+               ${something}  
                 
         </div>   
         `;
@@ -542,7 +537,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
         else
         // else
         {
-         
+         dir=something;
 
             if(deleteAction==true)
             {

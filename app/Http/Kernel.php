@@ -31,7 +31,6 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-        // \App\Http\Middleware\HttpsProtocol::class,
 
             \App\Http\Middleware\EncryptCookies::class,
             \App\Http\Middleware\setAppLang::class,
@@ -69,5 +68,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'test'=>\App\Http\Middleware\test::class,
+       'https'=> \App\Http\Middleware\HttpsProtocol::class,
+
     ];
 }

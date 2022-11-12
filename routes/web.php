@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -56,15 +57,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::post('/broadcasting/auth', [PusherController::class, 'pusherAuth'])
 
 
-Route::get('reg',function(Request $request){
+Route::post('reg', function (Request $request)
+{
+    
+    
     User::create([
-        'name'=>$request->name,
-        'password'=>$request->password,
-        'email'=>$request->email,
-        'img'=>$request->img,
-        'deviceToken'=>$request->deviceToken
-
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'deviceToken'=>$request->deviceToken,
+        'img' =>'https://ui-avatars.com/api/?background=2787F5&color=fff&name='.$request->name
     ]);
-
-    redirect()->route('tt');
-})->name('reg');
+    return redirect()->route('login');
+})->name('register1');
+Route::view('register','auth.register')->name('register')->middleware('https');

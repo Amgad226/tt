@@ -18,7 +18,7 @@ class HttpsProtocol
     {
         // dd(123);
             if (!$request->secure()) {
-               return redirect()->secure($request->getRequestUri());
+            //    return redirect()->secure($request->getRequestUri());
             }
 
             return $next($request); 

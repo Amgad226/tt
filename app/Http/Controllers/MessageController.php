@@ -129,7 +129,7 @@ class MessageController extends Controller
    
         $type='peer';
 
-        $user = Auth::user();
+        // $user = Auth::user();
         $conversation_id = $request->conversation_id;
         $user_id = $request->user_id;
         $reciver_user=User::find($user_id);

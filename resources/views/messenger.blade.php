@@ -25,7 +25,7 @@
         
         <!-- Template CSS -->
         <link rel="stylesheet" href="{{secure_asset('assets/css/newDark.css')}}" >
-        {{secure_asset('assets/css/newDark.css')}}
+        {{-- {{secure_asset('assets/css/newDark.css')}} --}}
         {{-- <link rel="stylesheet" href="{{asset('assets/css/template.dark.bundle.css')}}" > --}}
 
         <style>

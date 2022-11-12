@@ -35,6 +35,13 @@ class RegisterController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
 
+    public function showRegistrationForm()
+    {
+
+        return redirect('/register',302,[],true);
+        return view('auth.register');
+    }
+    
     protected function registered(Request $request, $user)
     {
  
@@ -43,6 +50,7 @@ class RegisterController extends Controller
     
     //  return redirect('/home');
     }
+  
     /**
      * Create a new controller instance.
      *

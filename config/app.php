@@ -19,7 +19,7 @@ return [
 
     'storeGoogleDrive'=>env('STORE_IN_GOOGLE_DRIVE',false),
     'envTyping'=>env('envTyping',false)   , 
-    'online'=>env('envTyping',false)   , 
+    'online'=>env('online',false)   , 
     /*
     |--------------------------------------------------------------------------
     | Application Environment

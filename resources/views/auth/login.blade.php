@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     @if ( config('app.online')  ==true)
     <link rel="stylesheet"    href="{{secure_asset('assets/css/loging.css')}}">
     <link rel="shortcut icon" href="{{secure_asset('img/logo.png')}}" type="image/x-icon">

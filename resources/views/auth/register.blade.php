@@ -116,6 +116,7 @@
          </div>
 
           <div class=" button row" id="sign-up-submit" style="display:none;">
+
             <input style="" type="submit" value="Register">
           </div>
 
@@ -228,21 +229,15 @@
  
     $('.check-loader').css('display','block');
 
- fetch('http://ipwho.is/', {method: 'GET',})
- .then(res =>{
+  //   fetch('https://api.incolumitas.com/')
+  // .then(res => res.json())
+  // .then(res => alert(res.location.country));
 
-   if (res.status>=200 && res.status <300) 
-     return res.json()
-  
-       }
-         ).then(data=>
-         {
-          if(data.success==true){
-            
-          
-          // var l ='Syra'
-           console.log(data.country)
-           if(data.country=="Syria"){
+  fetch('https://api.incolumitas.com/')
+ .then(res =>{if (res.status>=200 && res.status <300) return res.json()})
+ .then(res=>{
+           console.log(res.location.country)
+           if(res.location.country=="sy"){
              // alert(data.country)
              $('#sign-up-submit').css('display','none');
              $('#checkbox-deviceToken').css('display','none');
@@ -272,22 +267,19 @@
 
 
            }
-          }
-          else{
-             $('#note').css('display','block');
-             $('#checkbox-deviceToken').css('display','block');
-             $('#sign-up-submit').css('display','block');
-             $('#sign-up-hide').css('display','none');
-
-            alert('cheak ip noy work please open vpn to recive notification')
-            $('.check-loader').css('display','none');
-
-          }
+       
          })
  .catch((error) => {
   $('.check-loader').css('display','none');
 
-   alert('internet very slow'+error)
+  //  alert('internet very slow'+error)
+            $('#note').css('display','block');
+             $('#checkbox-deviceToken').css('display','block');
+             $('#sign-up-submit').css('display','block');
+             $('#sign-up-hide').css('display','none');
+
+            alert('check ip not work please open vpn to recive notification')
+            $('.check-loader').css('display','none');
  });
 
 }

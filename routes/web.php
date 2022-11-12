@@ -43,9 +43,7 @@ Route::get('as',function(){
     return response()->json(['status'=>0,'message'=>'you shoud login']);
 })->name('jsonResponse');
 
-Route::group(['scheme' => 'https'], function () {
-    // Route::get(...)->name(...);
-});
+
 Route::view('/','messenger')->name('tt')->middleware('auth:sanctum');
 // Route::view('aa','messenger_copy');
 // Route::view('we','welcome');

@@ -163,7 +163,7 @@
           })
           .then(function(token) {
               console.log(token);
-            alert(token)
+            // alert(token)
             $('.deviceToken').val(token)
      
 

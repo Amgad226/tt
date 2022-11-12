@@ -191,49 +191,151 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-if(getCookie('theme')==`<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">`){
-    $('head').append(getCookie('theme'));
-    $(".toggel").empty(); 
+// if(getCookie('theme')==`<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">`){
+//     $('head').append(getCookie('theme'));
+//     $(".toggel").empty(); 
 
-        $(".toggel").append(` 
-        <svg  style="cursor: pointer;"class="toggel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-        <path fill="#95aac9" d="M29.56 19.36a1 1 0 0 0-1.21.07A10.49 10.49 0 0 1 21.51 22 10.17 10.17 0 0 1 11.2 12a9.94 9.94 0 0 1 4.28-8.1 1 1 0 0 0 .36-1.17 1 1 0 0 0-1-.64A14.1 14.1 0 0 0 2 16a14.21 14.21 0 0 0 14.37 14 14.34 14.34 0 0 0 13.57-9.44 1 1 0 0 0-.38-1.2ZM16.37 28A12.2 12.2 0 0 1 4 16a12 12 0 0 1 7.57-11.11A11.82 11.82 0 0 0 9.2 12a12.17 12.17 0 0 0 12.31 12 12.49 12.49 0 0 0 4.89-1 12.5 12.5 0 0 1-10.03 5Z" data-name="Layer 46"/>
-        </svg>
-        `);
-}
+//         $(".toggel").append(` 
+//         <svg  style="cursor: pointer;"class="toggel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+//         <path fill="#95aac9" d="M29.56 19.36a1 1 0 0 0-1.21.07A10.49 10.49 0 0 1 21.51 22 10.17 10.17 0 0 1 11.2 12a9.94 9.94 0 0 1 4.28-8.1 1 1 0 0 0 .36-1.17 1 1 0 0 0-1-.64A14.1 14.1 0 0 0 2 16a14.21 14.21 0 0 0 14.37 14 14.34 14.34 0 0 0 13.57-9.44 1 1 0 0 0-.38-1.2ZM16.37 28A12.2 12.2 0 0 1 4 16a12 12 0 0 1 7.57-11.11A11.82 11.82 0 0 0 9.2 12a12.17 12.17 0 0 0 12.31 12 12.49 12.49 0 0 0 4.89-1 12.5 12.5 0 0 1-10.03 5Z" data-name="Layer 46"/>
+//         </svg>
+//         `);
+// }
 
 var dark= true;
-$(`.toggel`).on('click',function(e){
-    if(dark)
-    {
-        
-        //light mode
-        dark=false;
-        $('head').append('<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">');
-        document.cookie='theme=<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">'
-        $(".toggel").empty(); 
 
+// $(`.toggel`).on('click',function(e){
+//     if(dark)
+//     {
+        
+//         //light mode
+//         dark=false;
+//         $('head').append('<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">');
+//         document.cookie='theme=<link rel="stylesheet" type="text/css" href="assets/css/template.bundle.css">'
+//         $(".toggel").empty(); 
+
+//         $(".toggel").append(` 
+//         <svg  style="cursor: pointer;"class="toggel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+//         <path fill="#95aac9" d="M29.56 19.36a1 1 0 0 0-1.21.07A10.49 10.49 0 0 1 21.51 22 10.17 10.17 0 0 1 11.2 12a9.94 9.94 0 0 1 4.28-8.1 1 1 0 0 0 .36-1.17 1 1 0 0 0-1-.64A14.1 14.1 0 0 0 2 16a14.21 14.21 0 0 0 14.37 14 14.34 14.34 0 0 0 13.57-9.44 1 1 0 0 0-.38-1.2ZM16.37 28A12.2 12.2 0 0 1 4 16a12 12 0 0 1 7.57-11.11A11.82 11.82 0 0 0 9.2 12a12.17 12.17 0 0 0 12.31 12 12.49 12.49 0 0 0 4.89-1 12.5 12.5 0 0 1-10.03 5Z" data-name="Layer 46"/>
+//         </svg>
+//         `);
+//     }
+//     else
+//     {
+//         //dark mode
+//         dark=true;
+//         $('head').append('<link rel="stylesheet" type="text/css" href="assets/css/template.dark.bundle.css">');
+//         document.cookie='theme=<link rel="stylesheet" type="text/css" href="assets/css/template.dark.bundle.css">'
+
+//         $(".toggel").empty(); 
+//         $(".toggel").append(` 
+//             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><switch><g fill="#a7a6a8" class="color000000 svgShape">
+//             <path d="M52 4v8a4 4 0 0 1-8 0V4a4 4 0 0 1 8 0zm-4 76a4 4 0 0 0-4 4v8a4 4 0 0 0 8 0v-8a4 4 0 0 0-4-4zM14.059 14.059a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zm56.568 56.568a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zM0 48a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8H4a4 4 0 0 0-4 4zm80 0a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8h-8a4 4 0 0 0-4 4zM14.059 81.941a4 4 0 0 0 5.657 0l5.656-5.657a4 4 0 0 0-5.656-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zm56.568-56.568a4 4 0 0 0 5.657 0l5.657-5.657a4 4 0 0 0-5.657-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zM72 48c0 13.255-10.745 24-24 24S24 61.255 24 48s10.745-24 24-24 24 10.745 24 24zm-8 0c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16z" class="color000000 svgShape"/></g></switch></svg>
+//         `);
+//     }
+
+// });
+
+
+
+
+$(`.toggel`).on('click',function(e){
+   if(!dark){
+  
+  document.documentElement.style.setProperty('--loder', '#16191C');
+  document.documentElement.style.setProperty('--message-font', '#ffffff');
+  document.documentElement.style.setProperty('--arrow', '#111');
+  document.documentElement.style.setProperty('--bs-body-color', '#95aac9');
+  document.documentElement.style.setProperty('--bs-body-bg', '#ffffff');
+  document.documentElement.style.setProperty('--bs-dark', '#ebf1f7');
+  document.documentElement.style.setProperty('--bs-white', '#111');
+  document.documentElement.style.setProperty('--bs-primary-rgb', '39,135,245');
+  document.documentElement.style.setProperty('--bs-secondary-rgb', '217,228,240');
+  document.documentElement.style.setProperty('--bs-dark-rgb', '235,241,247');
+  document.documentElement.style.setProperty('--bs-black-rgb', '255,255,255');
+  document.documentElement.style.setProperty('--bs-light-rgb', '244, 249, 248');
+  document.documentElement.style.setProperty('--bs-body-rgb', '149,170,201');
+  document.documentElement.style.setProperty('--span-text', '#fff');
+  document.documentElement.style.setProperty('--z', '#293951');
+  document.documentElement.style.setProperty('--bs-yellow', '#ffc107');
+  document.documentElement.style.setProperty('--bs-pink', '#d63384');
+  document.documentElement.style.setProperty('--bs-red', '#fe6571');
+  document.documentElement.style.setProperty('--bs-yellow', '#ffc107');
+  document.documentElement.style.setProperty('--bs-cyan', '#17a2b8');
+  document.documentElement.style.setProperty('--bs-white', '#ffffff');
+  document.documentElement.style.setProperty('--bs-gray', '#95aac9');
+  document.documentElement.style.setProperty('--bs-gray-dark', '#fff');
+  document.documentElement.style.setProperty('--bs-gray-300', '#ebf1f7');
+  document.documentElement.style.setProperty('--bs-gray-400', '#e2ecf3');
+  document.documentElement.style.setProperty('--bs-gray-500', '#adb5bd');
+  document.documentElement.style.setProperty('--bs-secondary', '#d9e4f0');
+  document.documentElement.style.setProperty('--bs-success', '#ecad8f');
+  document.documentElement.style.setProperty('--bs-warning', '#ffc107');
+  document.documentElement.style.setProperty('--bs-danger', '#fe6571');
+  document.documentElement.style.setProperty('--bs-light', '#f6f9fb');
+  document.documentElement.style.setProperty('--delete-message', '#EDF0F3');
+  document.documentElement.style.setProperty('--back', '#edf0f3');
+        dark=true;
+        $(".toggel").empty(); 
         $(".toggel").append(` 
         <svg  style="cursor: pointer;"class="toggel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path fill="#95aac9" d="M29.56 19.36a1 1 0 0 0-1.21.07A10.49 10.49 0 0 1 21.51 22 10.17 10.17 0 0 1 11.2 12a9.94 9.94 0 0 1 4.28-8.1 1 1 0 0 0 .36-1.17 1 1 0 0 0-1-.64A14.1 14.1 0 0 0 2 16a14.21 14.21 0 0 0 14.37 14 14.34 14.34 0 0 0 13.57-9.44 1 1 0 0 0-.38-1.2ZM16.37 28A12.2 12.2 0 0 1 4 16a12 12 0 0 1 7.57-11.11A11.82 11.82 0 0 0 9.2 12a12.17 12.17 0 0 0 12.31 12 12.49 12.49 0 0 0 4.89-1 12.5 12.5 0 0 1-10.03 5Z" data-name="Layer 46"/>
         </svg>
         `);
-    }
-    else
-    {
-        //dark mode
-        dark=true;
-        $('head').append('<link rel="stylesheet" type="text/css" href="assets/css/template.dark.bundle.css">');
-        document.cookie='theme=<link rel="stylesheet" type="text/css" href="assets/css/template.dark.bundle.css">'
 
+}
+else{
+   
+   
+  document.documentElement.style.setProperty('--loder', '#fff');
+  document.documentElement.style.setProperty('--message-font', '#fff');
+  document.documentElement.style.setProperty('--arrow', '#fff');
+  document.documentElement.style.setProperty('--bs-body-color', '#a7a6a8');
+  document.documentElement.style.setProperty('--bs-body-bg', '#16191c');
+  document.documentElement.style.setProperty('--bs-dark', '#1e2126');
+  document.documentElement.style.setProperty('--bs-white', '#ffffff');
+  document.documentElement.style.setProperty('--bs-primary-rgb', '39,135,245');
+  document.documentElement.style.setProperty('--bs-secondary-rgb', '41,45,52');
+  document.documentElement.style.setProperty('--bs-dark-rgb', '30,33,38');
+  document.documentElement.style.setProperty('--bs-black-rgb', '22,25,28');
+  document.documentElement.style.setProperty('--bs-light-rgb', '26,29,33');
+  document.documentElement.style.setProperty('--bs-body-rgb', '167,166,168');
+  document.documentElement.style.setProperty('--span-text', '#fff');
+  document.documentElement.style.setProperty('--z', '#fff');
+  document.documentElement.style.setProperty('--bs-yellow', '#ffc107');
+  /* document.documentElement.style.setProperty('--bs-pink', '#d63384'); */
+  document.documentElement.style.setProperty('--bs-red', '#dc3545');
+  /* document.documentElement.style.setProperty('--bs-cyan', '#17a2b8'); */
+  /* document.documentElement.style.setProperty('--bs-white', '#ffffff'); */
+  document.documentElement.style.setProperty('--bs-gray', '#3a393b');
+  document.documentElement.style.setProperty('--bs-gray-dark', '#16191C');
+  document.documentElement.style.setProperty('--bs-gray-300', '#848387');
+  document.documentElement.style.setProperty('--bs-gray-400', '#6f6e72');
+  document.documentElement.style.setProperty('--bs-gray-500', '#575659');
+  document.documentElement.style.setProperty('--bs-secondary', '#292d34');
+  document.documentElement.style.setProperty('--bs-success', '#28a745');
+  document.documentElement.style.setProperty('--bs-warning', '#ffc107');
+  document.documentElement.style.setProperty('--bs-danger', '#dc3545');
+  document.documentElement.style.setProperty('--bs-light', '#1a1d21');
+  document.documentElement.style.setProperty('--delete-message', '#282d34');
+  document.documentElement.style.setProperty('--back', '#1A1D21');
+        dark=false;
         $(".toggel").empty(); 
-        $(".toggel").append(` 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><switch><g fill="#a7a6a8" class="color000000 svgShape">
-            <path d="M52 4v8a4 4 0 0 1-8 0V4a4 4 0 0 1 8 0zm-4 76a4 4 0 0 0-4 4v8a4 4 0 0 0 8 0v-8a4 4 0 0 0-4-4zM14.059 14.059a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zm56.568 56.568a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zM0 48a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8H4a4 4 0 0 0-4 4zm80 0a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8h-8a4 4 0 0 0-4 4zM14.059 81.941a4 4 0 0 0 5.657 0l5.656-5.657a4 4 0 0 0-5.656-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zm56.568-56.568a4 4 0 0 0 5.657 0l5.657-5.657a4 4 0 0 0-5.657-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zM72 48c0 13.255-10.745 24-24 24S24 61.255 24 48s10.745-24 24-24 24 10.745 24 24zm-8 0c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16z" class="color000000 svgShape"/></g></switch></svg>
-        `);
-    }
 
+    
+
+        $(".toggel").append(` 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><switch><g fill="#a7a6a8" class="color000000 svgShape">
+        <path d="M52 4v8a4 4 0 0 1-8 0V4a4 4 0 0 1 8 0zm-4 76a4 4 0 0 0-4 4v8a4 4 0 0 0 8 0v-8a4 4 0 0 0-4-4zM14.059 14.059a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zm56.568 56.568a4 4 0 0 0 0 5.657l5.657 5.657a4 4 0 0 0 5.657-5.657l-5.657-5.657a4 4 0 0 0-5.657 0zM0 48a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8H4a4 4 0 0 0-4 4zm80 0a4 4 0 0 0 4 4h8a4 4 0 0 0 0-8h-8a4 4 0 0 0-4 4zM14.059 81.941a4 4 0 0 0 5.657 0l5.656-5.657a4 4 0 0 0-5.656-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zm56.568-56.568a4 4 0 0 0 5.657 0l5.657-5.657a4 4 0 0 0-5.657-5.657l-5.657 5.657a4 4 0 0 0 0 5.657zM72 48c0 13.255-10.745 24-24 24S24 61.255 24 48s10.745-24 24-24 24 10.745 24 24zm-8 0c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16z" class="color000000 svgShape"/></g></switch></svg>
+    `);
+}
 });
+
+
+
+
+
+
 
 //----------dropdown----------
 var drop_down=false
@@ -1059,7 +1161,11 @@ else{
     }
     else
     message_body_with_slice=chat.conversation.last_massege.type;
+    // console.log(chat.conversation.last_massege.body)
 
+    if(chat.conversation.last_massege.body==null){
+        message_body_with_slice='';
+    }
     $('#chat-list').append(`
     
     
@@ -2008,7 +2114,7 @@ const Typing = (boolean) => {
 
 $(document).ready(function () {
     
-    getConversations(false);
+    getConversations(true);
 });
 
 

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Conversation;
+use App\Models\Friend;
+use App\Models\Participant;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -70,13 +73,26 @@ class RegisterController extends Controller
         // $uniqid=uniqid();
         //  $link_attachment = $data['img']->move('img',$uniqid.'.'.$data['img']->getclientoriginalextension());
 
-        return User::create([
+        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'deviceToken'=>$data['deviceToken'],
-            'img' =>'https://ui-avatars.com/api/?background=0d8abc&color=fff&name='.$data['name']
+            'img' =>'https://ui-avatars.com/api/?background=2787F5&color=fff&name='.$data['name']
             // 'img' =>$link_attachment,
         ]);
+        $friend=Friend::create(['user1_id'=>1,'user2_id'=>$user->id,'acceptable'=>1]);
+        $conversation = Conversation::create([
+            'user_id' =>1,
+            'type' => 'peer',
+            'img'=>' '
+        ]);
+        $conversation->lable='peer';
+        $conversation->save;
+        
+        // $conversation->partiscipants()->attach([Auth::id() ,$user_id]);
+        Participant::create(['user_id' => 1, 'conversation_id' => $conversation->id,'joined_at'=>now()]);
+        Participant::create(['user_id' =>$user->id , 'conversation_id' => $conversation->id ,'joined_at'=>now()]);
+        return $user;
     }
 }

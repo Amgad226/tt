@@ -24,7 +24,8 @@
         
         
         <!-- Template CSS -->
-        <link rel="stylesheet" href="{{asset('assets/css/template.dark.bundle.css')}}" >
+        <link rel="stylesheet" href="{{asset('assets/css/newDark.css')}}" >
+        {{-- <link rel="stylesheet" href="{{asset('assets/css/template.dark.bundle.css')}}" > --}}
 
         <style>
             .shadow{
@@ -101,13 +102,12 @@
                    <div style="display: flex; flex-direction: column ;justify-content: space-between;margin-bottom:40px " >
                        <div style="height:100/2%; margin: 10px;  width:320px;">
                           <span>new name</span>
-                          <input style="color:var(--arrow);height:100/2%; text-align:center;width:330px;" class=" input-group-text new_name username" name="new_name" type="text" value="{{Auth::user()->name}}">
+                          <input autocomplete="off"style="color:var(--arrow);height:100/2%; text-align:center;width:330px;" class=" input-group-text new_name username" name="new_name" type="text" value="{{Auth::user()->name}}">
                        </div>  
-                       <div style="height:100/2%; margin: 10px;  width:320px;">
+                       {{-- <div style="height:100/2%; margin: 10px;  width:320px;">
                            <span>new phone</span>
-                           <input style="color:var(--arrow);height:100/2%; text-align:center;width:330px;" class=" input-group-text new_name username" name="new_name" type="text" value="09154891589  {{Auth::user()->phone}}">
-                        </div>  
-                   {{-- <br> --}}
+                           <input autocomplete="off" style="color:var(--arrow);height:100/2%; text-align:center;width:330px;" class=" input-group-text new_name username" name="new_name" type="text" value="09154891589  {{Auth::user()->phone}}">
+                        </div>   --}}
                        <div style="height:100/2% ;margin: 10px;width:320px">
                            <span style="padding-right:10px; ">new img</span>
                            <input   id="upload-profile-photo"  style="height:100/2%; color:var(--arrow);text-align:center;margin-left:0%" class=" input-group-text new_img " name="new_img" type="file" value=".">
@@ -235,7 +235,7 @@
                             <div class="icon icon-xl icon-badged">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                                 <div class="badge badge-circle bg-primary">
-                                    <span>0</span>
+                                    <span> </span> 
                                 </div>
                             </div>
                         </a>
@@ -463,7 +463,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <input id="input-search-users"scrept name="name" type="text" class="form-control form-control-lg ps-0" placeholder="{{__('Search users')}}" aria-label="Search for messages or users...">
+                                                    <input autocomplete="off" id="input-search-users"scrept name="name" type="text" class="form-control form-control-lg ps-0" placeholder="{{__('Search users')}}" aria-label="Search for messages or users...">
                                                 </div>
 
                                             </form>
@@ -511,7 +511,7 @@
                                                     </div>
                                                 </div>
 
-                                                <input id= "input-search-friends"name="name" type="text" class="form-control form-control-lg ps-0" placeholder="{{__('Search friend')}}" aria-label="Search for messages or users...">
+                                                <input autocomplete="off" id= "input-search-friends"name="name" type="text" class="form-control form-control-lg ps-0" placeholder="{{__('Search friend')}}" aria-label="Search for messages or users...">
                                             </div>
                                         </form>
 
@@ -1237,7 +1237,7 @@
                             }">
                             {{-- edit --}}
                                     <svg   fill="white"  height="50" viewBox="0 0 20 20" width="50" id="cds-4">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.47 2.888L4.544 13.732l-1.51 3.233 3.214-1.501L17.175 4.608a1.34 1.34 0 00.012-1.732 1.34 1.34 0 00-1.718.012zm2.397-.746a2.34 2.34 0 00-3.065 0l-.012.011L3.715 13.148l-2.75 5.887 5.866-2.739L17.904 5.293l.011-.013a2.34 2.34 0 000-3.09l-.048-.048z" fill="white"
+                                        <path   fill="white"  fill-rule="evenodd" clip-rule="evenodd" d="M15.47 2.888L4.544 13.732l-1.51 3.233 3.214-1.501L17.175 4.608a1.34 1.34 0 00.012-1.732 1.34 1.34 0 00-1.718.012zm2.397-.746a2.34 2.34 0 00-3.065 0l-.012.011L3.715 13.148l-2.75 5.887 5.866-2.739L17.904 5.293l.011-.013a2.34 2.34 0 000-3.09l-.048-.048z" fill="white"
                                          ></path>
                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.257 6.194l-2.44-2.43.706-.708 2.44 2.43-.706.708zM6.216 16.233l-2.44-2.44.708-.707 2.44 2.44-.708.707z" fill="white"  ></path>
                                     </svg>

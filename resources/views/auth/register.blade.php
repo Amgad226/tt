@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Login 01</title>
+<title>sign up 01</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>

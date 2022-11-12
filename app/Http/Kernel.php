@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
+
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
@@ -30,6 +31,8 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+        \App\Http\Middleware\HttpsProtocol::class,
+
             \App\Http\Middleware\EncryptCookies::class,
             \App\Http\Middleware\setAppLang::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,

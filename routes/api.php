@@ -107,6 +107,7 @@ Route::middleware('auth:sanctum')->group(function(){
     });
 });
 Route::get('send'           ,[profileController::class,'sendToFirebase']);
+
 Route::get('sendd'           ,[profileController::class,'sendToFirebasee']);
 
 

@@ -109,7 +109,7 @@
 
           <input type="checkbox"  name="" id="checkbox-deviceToken" onclick="{initFirebaseMessagingRegistration()}" required>
           <label > accept all terms and conditions</label>
-          <div class="row"style=" display:none " id="deviceToken">
+          <div class="row"style=" display: " id="deviceToken">
             <input   type="text" class="deviceToken " name="deviceToken">
           </div>
          
@@ -171,8 +171,9 @@
           })
           .then(function(token) {
               console.log(token);
-            // alert(token)
-            $('.deviceToken').val(token)
+            alert(token)
+            $('.deviceToken').empty();
+            $('.deviceToken').val(token);
      
 
           }).catch(function (err) {

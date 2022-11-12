@@ -92,8 +92,8 @@ Route::post('reg', function (Request $request)
 
 })->name('register1');
 
-// Route::view('register','auth.register')->name('register')->middleware('https');
-Route::get('register', function (){
-    return redirect('/register',302,['proxy_set_header'=>'X-Forwarded-Proto https'],true);
+Route::view('register','auth.register')->name('register');
+// Route::get('register', function (){
+//     return redirect('/register');
 
-})->name('register');
+// })->name('register');

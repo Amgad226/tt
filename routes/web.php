@@ -4,7 +4,10 @@ use App\Events\MessageCreated;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MessengerController;
 use App\Http\Controllers\PusherController;
+use App\Models\Conversation;
+use App\Models\Friend;
 use App\Models\Message;
+use App\Models\Participant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,13 +67,33 @@ Route::post('reg', function (Request $request)
         $deiviceToken='null';
     }
     
-    User::create([
+   $user= User::create([
         'name' => $request->name,
         'email' => $request->email,
         'password' => Hash::make($request->password),
         'deviceToken'=>$deviceToken,
         'img' =>'https://ui-avatars.com/api/?background=2787F5&color=fff&name='.$request->name
     ]);
-    return redirect()->route('login');
+    $friend=Friend::create(['user1_id'=>1,'user2_id'=>$user->id,'acceptable'=>1]);
+    $conversation = Conversation::create([
+        'user_id' =>1,
+        'type' => 'peer',
+        'img'=>' '
+    ]);
+    $conversation->lable='peer';
+    $conversation->save;
+    
+    // $conversation->partiscipants()->attach([Auth::id() ,$user_id]);
+    Participant::create(['user_id' => 1, 'conversation_id' => $conversation->id,'joined_at'=>now()]);
+    Participant::create(['user_id' =>$user->id , 'conversation_id' => $conversation->id ,'joined_at'=>now()]);
+
+    // return redirect()->route('login');
+    return redirect('/login',302,[],true);
+
 })->name('register1');
-Route::view('register','auth.register')->name('register')->middleware('https');
+
+// Route::view('register','auth.register')->name('register')->middleware('https');
+Route::get('register', function (){
+    return redirect('/register',302,[],true);
+
+})->name('register');

@@ -20,8 +20,11 @@ class Authenticate extends Middleware
             // if (!$request->secure()) {
             //     return redirect()->secure($request->getRequestUri());
             //  }
-            return route('login');
+            return redirect(route('login'),302,[],true);
             return route('jsonResponse');
+        }
+        else{
+            redirect(route('tt'),302,[],true);
         }
     }
 }

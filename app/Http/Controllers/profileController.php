@@ -141,7 +141,7 @@ class profileController extends Controller
              $firebaseToken = User::where('id',$participant->user_id)->pluck('deviceToken')->all();
             //  $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bG_87JQBtSvTp70T7GaY_CGHCHXIPL1pj-H_d8iSuxdpuvdQ6gQeyn-U4C72XAams8ZBkqW8gpa3rr_tiFTlhY9g-6ffQq26T9_99u6J8D38ILMTXKhjcov_Dci9UtaDlrIGYeZ"];
              // $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bHmSX9FOmLKQROInwAoVZN7vqheUAyvpnlXntooWFJgt7JFk5niE-1DliViL3C6CMep7NFQNeKDudDAnUkrA6r14pHYy052HT2HkRnrzqC1D4DzUS9spO6Thw-flt-WV-vn4nRo"            ];
-            $firebaseToken=['eLTtD5ur1IuC3wMWmqlP37:APA91bEmgjdbOuEC793zsRZd1t1Nwbo1nBEJzxWW9_fnPfhMyOrxd4XHbCZE-al6vbOJXpZq56KixSHP4agwzye_u0JiAEwA7GzksJmXY-bEwyMvPIrKP1YHsnnKa95aviGpE5m-cm9i'];
+            // $firebaseToken=['eLTtD5ur1IuC3wMWmqlP37:APA91bEmgjdbOuEC793zsRZd1t1Nwbo1nBEJzxWW9_fnPfhMyOrxd4XHbCZE-al6vbOJXpZq56KixSHP4agwzye_u0JiAEwA7GzksJmXY-bEwyMvPIrKP1YHsnnKa95aviGpE5m-cm9i'];
              $SERVER_API_KEY = 'AAAAUaVANXk:APA91bFncgrq3FnMeF_Cnu1W484TFzGBXyYGHV52UANZEufh4kLVwvv-JxlnuBWK8XatvIFnqmsvvf9mx-I2rGeZswH8SajA7C4N1KBBrWYAcV6fr-8npfwfdAWS5Lpx-q_dOrgvJ_-p';
              
              $data = [
@@ -219,10 +219,10 @@ class profileController extends Controller
     // return redirect()->secure($r->getRequestUri());
  
 
-
+        // $t=$t
             //  $firebaseToken = User::where('name','Hh')->pluck('deviceToken')->all();
             //  $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bG_87JQBtSvTp70T7GaY_CGHCHXIPL1pj-H_d8iSuxdpuvdQ6gQeyn-U4C72XAams8ZBkqW8gpa3rr_tiFTlhY9g-6ffQq26T9_99u6J8D38ILMTXKhjcov_Dci9UtaDlrIGYeZ"];
-             $firebaseToken=["fbNahfHMltxX-7YJ5kVFUt:APA91bG3N0tUjJH_j13KrmOQTFEp_LTEd5U9_COy58UPoUuTptJPYF6IyXzvlEBNS53i4AWwTHqQweRNIG066az3-YwRHE4jDpZ6Sx8xvkhzR2WwO-IfLnUT_Fqrpw8mgTTcfv4-Ap6Q"];
+             $firebaseToken=["eLTtD5ur1IuC3wMWmqlP37:APA91bEj0xxyCRpM90MiPjcXZwJtehoHTfk642ubWY5RVAbibPmcY2OH1WE9Y3QfcBwdb8H3NV_n_jbRdmmNx7a9Of6GTyGeOj_E7T0abAdM-6upOZIVOul88--dLvEuy7JaDC2gDgnM"];
                 // $firebaseToken=['91bEj0xxyCRpM90MiPjcXZwJtehoHTfk642ubWY5RVAbibPmcY2OH1WE9Y3QfcBwdb8H3NV_n_jbRdmmNx7a9Of6GTyGeOj_E7T0abAdM-6upOZIVOul88--dLvEuy7JaDC2gDgnM'];
              $SERVER_API_KEY = 'AAAAUaVANXk:APA91bFncgrq3FnMeF_Cnu1W484TFzGBXyYGHV52UANZEufh4kLVwvv-JxlnuBWK8XatvIFnqmsvvf9mx-I2rGeZswH8SajA7C4N1KBBrWYAcV6fr-8npfwfdAWS5Lpx-q_dOrgvJ_-p';
              

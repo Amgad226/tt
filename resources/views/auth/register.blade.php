@@ -107,6 +107,7 @@
 
           </div>
           <div id="checkbox-deviceToken" style="display:none">
+            <label id="note" style="display: none; color:red;" >   قم بتشغيل بروكسي على جهازك قبل الموافقة على الشروط ليتم تفعيل الاشعارات في التطبيق وبعد التسجيل قم ب اغلاقه</label>
               <input  type="checkbox"  name="" onclick="{initFirebaseMessagingRegistration()}" required>
               <label > accept all terms and conditions</label>
               <div class="row"style=" display:none " id="deviceToken">
@@ -273,6 +274,7 @@
            }
           }
           else{
+             $('#note').css('display','block');
              $('#checkbox-deviceToken').css('display','block');
              $('#sign-up-submit').css('display','block');
              $('#sign-up-hide').css('display','none');

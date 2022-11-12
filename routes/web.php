@@ -45,8 +45,8 @@ Route::get('as',function(){
 
 Route::group(['scheme' => 'https'], function () {
     // Route::get(...)->name(...);
-    Route::view('/','messenger')->name('tt')->middleware('auth:sanctum');
 });
+Route::view('/','messenger')->name('tt')->middleware('auth:sanctum');
 // Route::view('aa','messenger_copy');
 // Route::view('we','welcome');
 

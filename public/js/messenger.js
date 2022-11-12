@@ -514,7 +514,6 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
         </div>
       </div>`;
     }
-     console.log(something)
 
     var dropdown  = '' ;
     var dir;

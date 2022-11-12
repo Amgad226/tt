@@ -574,7 +574,7 @@ const addMessagesToGroup = function(msg ,c = '' ,isAnimate = true ,deleteAction=
             <div class="message-inner" >
                    <div class="message-body">
                          <div class="message-content">
-                               ${something}
+                               ${dir}
                                ${dropdown}
                         </div> 
                     </div>

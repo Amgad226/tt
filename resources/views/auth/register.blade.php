@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 <link rel="stylesheet" href="{{asset('assets/css/loging.css')}}">
+<link rel="shortcut icon" href="{{asset('img/logo.png')}}" type="image/x-icon">
 
 
   <div class="check-loader lds-ripple"style="display:none;position:absolute;width:300px;height:200px;z-index:15;top:60%;left:56%;margin:-100px 0 0 -150px;"><div></div><div></div>  </div>

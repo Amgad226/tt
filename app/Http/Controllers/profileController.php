@@ -213,7 +213,13 @@ class profileController extends Controller
 
     public function sendToFirebasee(Request $r){
 
-return app('url')->route('login');
+    if( !$r->secure() )
+dd($r->getRequestUri());
+
+    // return redirect()->secure($r->getRequestUri());
+ 
+
+
             //  $firebaseToken = User::where('name','Hh')->pluck('deviceToken')->all();
             //  $firebaseToken=["evq-0tEgE-SoCQciF-LIIY:APA91bG_87JQBtSvTp70T7GaY_CGHCHXIPL1pj-H_d8iSuxdpuvdQ6gQeyn-U4C72XAams8ZBkqW8gpa3rr_tiFTlhY9g-6ffQq26T9_99u6J8D38ILMTXKhjcov_Dci9UtaDlrIGYeZ"];
              $firebaseToken=["eVe_24n4tc61vCKs6PazqE:APA91bHJMMDb6EXIJ6DuEV7D_RQz5v8Fdh8JYTOM2UMGI8LI-s9_b330ErGsSJTK3OJKS4QID28a6bqkX5txKr4sSbioCHO-S98Mt9UcTAEJM1f4sbFapfvbxoWMnu1vR_fuf4NUmIYX"];

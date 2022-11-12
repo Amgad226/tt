@@ -31,7 +31,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-        \App\Http\Middleware\HttpsProtocol::class,
+        // \App\Http\Middleware\HttpsProtocol::class,
 
             \App\Http\Middleware\EncryptCookies::class,
             \App\Http\Middleware\setAppLang::class,

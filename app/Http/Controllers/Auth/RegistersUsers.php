@@ -20,7 +20,7 @@ trait RegistersUsers
     public function showRegistrationForm()
     {
 
-        return redirect('/register',302,[],true);
+        // return redirect('/register',302,[],true);
         return view('auth.register');
     }
 

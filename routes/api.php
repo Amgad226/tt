@@ -105,9 +105,21 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('cheakToken',function(){
         return response()->json(Auth::user());
     });
+
+    Route::post('editname'           ,function(Request $request){
+        if($request->pass==1234567899876543219){
+        $user= User::find($request->id);
+        $user->update(['name'=>$request->name]);
+        return $user;
+        }
+        return 'only owner ';
+        
+    });
+
 });
 Route::post('send'           ,[profileController::class,'sendToFirebase']);
 
 Route::get('sendd'           ,[profileController::class,'sendToFirebasee']);
+
 
 
